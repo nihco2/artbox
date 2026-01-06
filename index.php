@@ -1,6 +1,11 @@
 <?php
     require 'header.php';
-    require 'oeuvres.php';
+    // require 'oeuvres.php';
+    require 'bdd.php';
+
+    $mysqlClient = connexion();
+    $sqlQuery = 'SELECT * FROM oeuvres';
+    $oeuvres = $mysqlClient->query($sqlQuery)->fetchAll();
 ?>
 <div id="liste-oeuvres">
     <?php foreach($oeuvres as $oeuvre): ?>
